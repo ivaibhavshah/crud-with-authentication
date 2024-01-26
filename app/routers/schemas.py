@@ -1,5 +1,4 @@
-from datetime import datetime
-from typing import List, Optional
+from typing import Optional
 
 from email_validator import EmailNotValidError, validate_email
 from fastapi import HTTPException, status

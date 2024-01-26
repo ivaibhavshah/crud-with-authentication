@@ -1,7 +1,6 @@
 import json
 import traceback
 from datetime import datetime, timedelta
-from io import BytesIO
 
 import bcrypt
 from fastapi import HTTPException, status
