@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.routers.crud.users.routes import router as users
 
+from app.routers.crud.users.routes import router as users
 
 router = APIRouter()
 
@@ -9,6 +9,5 @@ router = APIRouter()
 def main():
     return {"Welcome": "To My Project"}
 
+
 router.include_router(users)
-
-

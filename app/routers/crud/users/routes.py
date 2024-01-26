@@ -1,13 +1,14 @@
-from app.routers import schemas
-from app.routers.crud.users import users
 from typing import List, Optional
 
 from fastapi import APIRouter, Depends, Response, status
 from sqlalchemy.orm import Session
 
 from app.dependencies import get_db
+from app.routers import schemas
+from app.routers.crud.users import users
 
 router = APIRouter(prefix="", tags=["Authentication"])
+
 
 @router.post("/signup", tags=["Authentication"])
 def signup(signup: schemas.Signup, db: Session = Depends(get_db)):

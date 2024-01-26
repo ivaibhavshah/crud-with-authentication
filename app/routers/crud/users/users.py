@@ -2,17 +2,15 @@ import json
 import traceback
 from datetime import datetime, timedelta
 from io import BytesIO
+
+import bcrypt
 from fastapi import HTTPException, status
 from jwcrypto import jwk, jwt
 from sqlalchemy.orm import Session
-import bcrypt
+
 from app.config import JWT_KEY
-from app.libs.utils import (
-    create_password,
-    generate_id,
-    now,
-)
-from app.models import  UserModel
+from app.libs.utils import create_password, generate_id, now
+from app.models import UserModel
 from app.routers.schemas import Login, Signup
 
 
@@ -75,6 +73,7 @@ def verify_token(db: Session, token: str):
             )
         return db_user
 
+
 def get_user_by_id(id: str, db: Session):
     db_user = (
         db.query(UserModel)
@@ -82,6 +81,7 @@ def get_user_by_id(id: str, db: Session):
         .first()
     )
     return db_user
+
 
 def get_user_by_email(db: Session, email: str):
     db_user = (
@@ -127,4 +127,3 @@ def login(login: Login, db: Session):
 def get_profile(db: Session, token: str):
     db_user = verify_token(db, token=token)
     return db_user
-

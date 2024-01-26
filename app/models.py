@@ -15,6 +15,7 @@ from sqlalchemy.orm import relationship
 
 from app.database import Base
 
+
 class UserModel(Base):
     __tablename__ = "users"
 
@@ -25,5 +26,3 @@ class UserModel(Base):
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now)
     is_deleted = Column(Boolean, default=False)
-
-

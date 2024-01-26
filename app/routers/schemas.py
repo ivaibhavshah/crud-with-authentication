@@ -43,6 +43,5 @@ class Users(BaseModel):
     email: str
 
 
-
 class LoginResponse(Users):
     token: Optional[str]
