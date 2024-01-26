@@ -8,6 +8,7 @@ DB_USER = os.environ.get("DB_USER")
 DB_PASSWORD = os.environ.get("DB_PASSWORD")
 DB_NAME = os.environ.get("DB_NAME")
 JWT_KEY = os.environ.get("JWT_KEY")
+FERNET_KEY = os.environ.get("FERNET_KEY")
 
 if JWT_KEY:
     try:
